@@ -1,8 +1,29 @@
-# React + Vite
+# Class Registration DApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a decentralized application (DApp) for student registration using Ethereum smart contracts. Users can connect their MetaMask wallets, register students with unique IDs, fetch the list of registered students, and remove students from the record. The frontend is built using React with Tailwind CSS for styling, and it interacts with the Ethereum blockchain using ethers.js.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+Connect a MetaMask wallet to interact with the blockchain.
+
+Register students by providing a unique student ID and name.
+
+Retrieve the list of all registered students.
+
+Remove a student from the list by ID.
+
+Updates the student list dynamically after transactions.
+
+## Technologies Used
+
+React.js for the frontend
+
+Tailwind CSS for styling
+
+ethers.js for blockchain interaction
+
+Solidity smart contract deployed on the Ethereum-compatible blockchain
+
+MetaMask for wallet connection

@@ -1,10 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import contractABI from "./abi.json"
+import contractABI from "./abi.json";
 
-const contractAddress = "0xB9C9c2A584715E522F60eBaEf49C34c9528D3723";;
-
+const contractAddress = "0xB9C9c2A584715E522F60eBaEf49C34c9528D3723";
 
 export default function ClassRegistrationApp() {
   const [provider, setProvider] = useState(null);
@@ -24,11 +23,15 @@ export default function ClassRegistrationApp() {
 
   const connectWallet = async () => {
     if (!provider) return;
-    const accounts = await provider.send("eth_requestAccounts", []);
-    setAccount(accounts[0]);
-    const web3Signer = provider.getSigner();
-    setSigner(web3Signer);
-    setContract(new ethers.Contract(contractAddress, contractABI, web3Signer));
+    try {
+      const accounts = await provider.send("eth_requestAccounts", []);
+      setAccount(accounts[0]);
+      const web3Signer = await provider.getSigner();
+      setSigner(web3Signer);
+      setContract(new ethers.Contract(contractAddress, contractABI, web3Signer));
+    } catch (error) {
+      console.error("Error connecting wallet:", error);
+    }
   };
 
   const registerStudent = async () => {
@@ -96,4 +99,3 @@ export default function ClassRegistrationApp() {
     </div>
   );
 }
-
